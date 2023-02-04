@@ -42,11 +42,11 @@ class GlobalHandler {
     return token;
   }
 
-  static Future<String?> geBroadbandNo() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var token = prefs.getString("user_id");
-    return token;
-  }
+  // static Future<String?> geBroadbandNo() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   var token = prefs.getString("user_id");
+  //   return token;
+  // }
 
   static logout(BuildContext context) async {
     await SharedPreferences.getInstance().then((prefs) {

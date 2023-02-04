@@ -9,7 +9,7 @@ Future<GetResponseOTPModel?> generateOtpBroadband(
     var response = await GlobalHandler.requestPost(
         "/broadband/auth/otp", {"phone_no": phoneNo});
     var js = json.decode(response.body);
-    print(js);
+    print('js --$js');
     GetResponseOTPModel res = GetResponseOTPModel.fromJson(js);
     return res;
   } catch (e) {

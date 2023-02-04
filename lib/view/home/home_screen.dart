@@ -19,7 +19,6 @@ class _HomeScreenState extends State<HomeScreen> {
   bool? accountNotFound;
   bool? accountBroadbandNotFound;
   dynamic dsBroadband;
-  
 
   @override
   void initState() {
@@ -40,8 +39,9 @@ class _HomeScreenState extends State<HomeScreen> {
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                content: Text(
-                    'Your current plan is not eligible for online renewal \nRecharge directly done by the user'),
+                content: Text(dsBroadband.getSubscriberDetail.returnMessage),
+                // content: Text(
+                //     'Your current plan is not eligible for online renewal \nRecharge directly done by the user'),
                 actions: [
                   TextButton(
                     onPressed: () {

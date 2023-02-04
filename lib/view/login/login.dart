@@ -202,6 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 if (value!.status == 200) {
                   print(value.otp!);
+                  print(value.userId);
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(

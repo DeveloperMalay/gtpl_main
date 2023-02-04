@@ -686,8 +686,8 @@ class _HelpState extends State<Help> {
               ),
               Center(
                 child: Container(
-                  width: 210,
-                  padding: EdgeInsets.all(10),
+                  width: 226,
+                  padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                   decoration: BoxDecoration(
                       color: primaryColor.withOpacity(0.2),
                       borderRadius: BorderRadius.circular(5)),
@@ -695,7 +695,7 @@ class _HelpState extends State<Help> {
                     child: Text(
                       'Subsciber Id: ${dsBroadband!.resultUserDetail!.userId}',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 13,
                         color: primaryColor,
                         fontWeight: FontWeight.w500,
                       ),

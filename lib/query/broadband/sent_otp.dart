@@ -11,6 +11,7 @@ Future<GetResponseOTPModel?> sentOtpBroadband(
     var js = json.decode(response.body);
 
     GetResponseOTPModel res = GetResponseOTPModel.fromJson(js);
+    print('res ---$res');
     return res;
   } catch (e) {
     GlobalHandler.snackBar(

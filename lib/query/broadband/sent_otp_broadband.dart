@@ -3,13 +3,15 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:gtpl/query/global_handler.dart';
 
-Future<GetResponseOTPModel?> sentOtpBroadband(BuildContext context, String userId) async {
+Future<GetResponseOTPModel?> sentOtpBroadband(
+    BuildContext context, String userId) async {
   try {
     var response = await GlobalHandler.requestPost(
         "/broadband/auth/phone", {"user_id": userId});
     var js = json.decode(response.body);
 
     GetResponseOTPModel res = GetResponseOTPModel.fromJson(js);
+    print('test -- ${res}');
     return res;
   } catch (e) {
     GlobalHandler.snackBar(
@@ -17,6 +19,7 @@ Future<GetResponseOTPModel?> sentOtpBroadband(BuildContext context, String userI
     return null;
   }
 }
+
 class GetResponseOTPModel {
   int? status;
   int? otp;
@@ -41,5 +44,3 @@ class GetResponseOTPModel {
     return data;
   }
 }
-
-

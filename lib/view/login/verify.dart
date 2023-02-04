@@ -118,6 +118,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
             validator: (s) {
               if (s == otp.toString()) {
                 if (widget.isBroadband) {
+                  print(widget.customerNo);
                   GlobalHandler.setBroadbandNo(widget.customerNo);
                   GlobalHandler.navigatorPushReplacement(context, Home());
                 } else {

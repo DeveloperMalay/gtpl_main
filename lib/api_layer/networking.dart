@@ -61,8 +61,9 @@ Future<http.Response> postTicket(String desc, String issue) async {
   var authUser = await _secureStorage.read(key: "user");
   var authToken = await _secureStorage.read(key: "token");
   var operatorCode = await _secureStorage.read(key: "operator");
+
   // print("Token from postTicket---->${authToken}");
-  // print("operator from postTicket---->${operatorCode}");
+  print("operator from postTicket---->${operatorCode}");
   // print("user from postTicket---->${authUser}");
 
   return http.post(
@@ -71,7 +72,7 @@ Future<http.Response> postTicket(String desc, String issue) async {
       HttpHeaders.authorizationHeader: authToken!,
       HttpHeaders.contentTypeHeader: "application/json"
     },
-    body: jsonEncode(
+    body: json.encode(
       <String, dynamic>{
         "user_id": authUser,
         "description": desc,
@@ -107,8 +108,14 @@ Future<List<UserTicket>> fetchTicketData() async {
     },
   );
   if (response.statusCode == 200) {
-    List jsonResponse = json.decode(response.body);
-    return jsonResponse.map((data) => UserTicket.fromJson(data)).toList();
+    // var jsonResponse = json.decode(response.body);
+    // print(jsonResponse['data']);
+    // if (json.decode(response.body)['data'] == 0) {
+    //   print('dtasdjfhiurfgrgfiuerfg');
+    // }
+    List jsonListResponse = json.decode(response.body);
+
+    return jsonListResponse.map((data) => UserTicket.fromJson(data)).toList();
   } else {
     throw Exception('Unexpected error occured!');
   }
